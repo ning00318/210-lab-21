@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>  // rand()
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -14,6 +15,12 @@ private:
     string colors[] = {"red", "blue", "green", "yellow", "orange", "purple", 
     "pink", "brown", "gray", "black", "white", "cyan", "magenta", "gold", "silver"
     };
+
+    Goat() {
+        age = rand() % (20-1+1) + 1;
+        name = names[rand() % (14-0+1) + 0];
+        color = colors[rand() % (14-0+1) + 0];
+    }
 };
 
 class DoublyLinkedList {
