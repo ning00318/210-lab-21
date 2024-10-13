@@ -31,8 +31,7 @@ public:
     }
 
     void print() {
-        cout << "\t" << age << "\t" << name << "\t" << color;
-        cout << endl;
+        cout << "\t" << name << " (" << colors << ", " << age << ")" << endl;
     }
 };
 
@@ -81,9 +80,13 @@ public:
 
     void print() {
         Node* current = head;
-        if (!current) return;
+        if (!current) {
+            cout << "List is empty" << endl;
+            return;
+        }
         while (current) {
-            cout << current->data << " ";
+            current->data.print();
+            cout << " ";
             current = current->next;
         }
         cout << endl;
@@ -91,9 +94,13 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+        if (!current) {
+            cout << "List is empty" << endl;
+            return;
+        }
         while (current) {
-            cout << current->data << " ";
+            current->data.print();
+            cout << " ";
             current = current->prev;
         }
         cout << endl;
@@ -117,15 +124,15 @@ int main() {
 
     for (int i = 0; i < size; ++i)
         list.push_back(Goat());
-    cout << "List forward: ";
+    cout << "Forward: ";
     list.print();
 
-    cout << "List backward: ";
+    cout << "Backward: " << endl;
     list.print_reverse();
 
     // cout << "Deleting list, then trying to print.\n";
     // list.~DoublyLinkedList();
-    cout << "List forward: ";
+    cout << "List forward: " << endl;
     list.print();
 
     return 0;
