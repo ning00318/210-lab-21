@@ -45,11 +45,11 @@ public:
 class DoublyLinkedList {
 private:
     struct Node {
-        Goat data;
+        Goat data;  // Goat rather than int
         Node* prev;
         Node* next;
         
-        Node(Goat d, Node* p = nullptr, Node* n = nullptr) {
+        Node(Goat d, Node* p = nullptr, Node* n = nullptr) {    // Goat rather than int
             data = d;
             prev = p;
             next = n;
@@ -63,7 +63,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
     
-    void push_back(Goat g) {
+    void push_back(Goat g) {    // Goat rather than int
         Node* newNode = new Node(g);
         if (!tail) // if there's no tail, the list is empty
             head = tail = newNode;
@@ -74,7 +74,7 @@ public:
         }
     }
 
-    void push_front(Goat g) {
+    void push_front(Goat g) {   // Goat rather than int
         Node* newNode = new Node(g);
         if (!head) // if there's no head, the list is empty
             head = tail = newNode;
@@ -88,12 +88,11 @@ public:
     void print() {
         Node* current = head;
         if (!current) {
-            cout << "List is empty" << endl;
+            cout << "List is empty" << endl;    // display the text if the list is empty
             return;
         }
         while (current) {
             current->data.print();
-            cout << " ";
             current = current->next;
         }
         cout << endl;
@@ -102,12 +101,11 @@ public:
     void print_reverse() {
         Node* current = tail;
         if (!current) {
-            cout << "List is empty" << endl;
+            cout << "List is empty" << endl;    // display the text if the list is empty
             return;
         }
         while (current) {
             current->data.print();
-            cout << " ";
             current = current->prev;
         }
         cout << endl;
@@ -124,13 +122,12 @@ public:
 
 // Driver program
 int main() {
-    srand(time(0));
-    
+    srand(time(0));     // to randomize random numbers
     DoublyLinkedList list;
-    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
+    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;     // random number, range 5-20
 
     for (int i = 0; i < size; ++i)
-        list.push_back(Goat());
+        list.push_back(Goat());     // append a random number of Goat objects
     cout << "Forward: " << endl;
     list.print();
 
