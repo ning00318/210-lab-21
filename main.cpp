@@ -29,6 +29,11 @@ public:
         name = n;
         color = c;
     }
+
+    void print() {
+        cout << "\t" << age << "\t" << name << "\t" << color;
+        cout << endl;
+    }
 };
 
 class DoublyLinkedList {
