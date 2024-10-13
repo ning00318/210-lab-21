@@ -3,23 +3,29 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+string names[] = {"Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Grace",
+    "Henry", "Isabella", "Jack", "Katherine", "Liam", "Mia", "Noah", "Olivia"};
+string colors[] = {"red", "blue", "green", "yellow", "orange", "purple", "pink", 
+    "brown", "gray", "black", "white", "cyan", "magenta", "gold", "silver"};
 
 class Goat {
 private:
     int age;
     string name;
     string color;
-    string names[] = {"Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Grace",
-    "Henry", "Isabella", "Jack", "Katherine", "Liam", "Mia", "Noah", "Olivia"
-    };
-    string colors[] = {"red", "blue", "green", "yellow", "orange", "purple", 
-    "pink", "brown", "gray", "black", "white", "cyan", "magenta", "gold", "silver"
-    };
-
+    
+    // default constructor
     Goat() {
-        age = rand() % (20-1+1) + 1;
-        name = names[rand() % (14-0+1) + 0];
-        color = colors[rand() % (14-0+1) + 0];
+        age = rand() % (20-1+1) + 1;            // randomly assign, 1-20
+        name = names[rand() % (14-0+1) + 0];    // randomly selected from the 15-element names[] array
+        color = colors[rand() % (14-0+1) + 0];  // randomly selected from the 15-element colors[] array
+    }
+
+    // parameter constructor
+    Goat(int a, string n, string c) {       // 3-element parameter setup
+        age = a;
+        name = n;
+        color = c;
     }
 };
 
