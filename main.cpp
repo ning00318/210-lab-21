@@ -1,14 +1,21 @@
+// COMSC-210 | Lab 21: Goat Herd Manager 3000 | Nina Tsao
+
 #include <iostream>
 #include <cstdlib>  // rand()
 #include <ctime>    // time()
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int MIN_LS = 5, MAX_LS = 20;
+
+// a string array of 15 names
 string names[] = {"Alice", "Bob", "Charlie", "David", "Emily", "Frank", "Grace",
     "Henry", "Isabella", "Jack", "Katherine", "Liam", "Mia", "Noah", "Olivia"};
+
+// a string array of 15 names
 string colors[] = {"red", "blue", "green", "yellow", "orange", "purple", "pink", 
     "brown", "gray", "black", "white", "cyan", "magenta", "gold", "silver"};
 
+// Goat class
 class Goat {
 private:
     int age;
@@ -31,7 +38,7 @@ public:
     }
 
     void print() {
-        cout << "\t" << name << " (" << colors << ", " << age << ")" << endl;
+        cout << "\t" << name << " (" << color << ", " << age << ")" << endl;
     }
 };
 
@@ -124,15 +131,15 @@ int main() {
 
     for (int i = 0; i < size; ++i)
         list.push_back(Goat());
-    cout << "Forward: ";
+    cout << "Forward: " << endl;
     list.print();
 
     cout << "Backward: " << endl;
     list.print_reverse();
 
-    // cout << "Deleting list, then trying to print.\n";
-    // list.~DoublyLinkedList();
-    cout << "List forward: " << endl;
+    cout << "Deleting list, then trying to print.\n";
+    list.~DoublyLinkedList();
+    cout << "List forward: ";
     list.print();
 
     return 0;
