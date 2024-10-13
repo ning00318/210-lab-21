@@ -32,15 +32,17 @@ private:
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val;
+        
+        Node(Goat d, Node* p = nullptr, Node* n = nullptr) {
+            data = d;
             prev = p;
             next = n;
         }
     };
+
     Node* head;
     Node* tail;
 
@@ -48,7 +50,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
     
-    void push_back(int value) {
+    void push_back(Goat) {
         Node* newNode = new Node(value);
         if (!tail) // if there's no tail, the list is empty
             head = tail = newNode;
@@ -59,7 +61,7 @@ public:
         }
     }
 
-    void push_front(int value) {
+    void push_front(Goat) {
         Node* newNode = new Node(value);
         if (!head) // if there's no head, the list is empty
             head = tail = newNode;
